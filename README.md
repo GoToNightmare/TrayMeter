@@ -7,6 +7,8 @@ A lightweight CPU and memory meter for the Windows notification area, styled aft
 
 Hover the icon for exact values. Right-click for options.
 
+![TrayMeter tooltip](docs/tooltip.png) ![TrayMeter menu](docs/menu.png)
+
 ## Requirements
 
 - Windows 10 version 1703 or later.
