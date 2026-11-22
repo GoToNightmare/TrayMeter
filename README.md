@@ -28,7 +28,7 @@ Run `TrayMeter.exe`. Only one instance runs per user session.
 |---|---|
 | Open Task Manager | Starts Task Manager. |
 | Match Task Manager's CPU % | On by default. See [CPU measurement](#cpu-measurement). |
-| Update every | 1, 2 or 5 seconds. |
+| Update every | 1, 2 or 5 seconds. Default: 5 seconds. |
 | Start with Windows | Adds or removes a per-user entry under `HKCU\Software\Microsoft\Windows\CurrentVersion\Run`. |
 | Exit | Removes the icon and quits. |
 
@@ -52,5 +52,5 @@ TrayMeter reads two system-wide totals per tick and never enumerates processes. 
 bars' pixels change, and tooltip text only while the pointer is over the icon. Sampling pauses while the session is
 locked.
 
-At a 1-second interval it typically uses about 0.02 % of one CPU core. Private memory is about 5.5 MB with **Match Task
+Even at the fastest, 1-second interval, it typically uses about 0.02 % of one CPU core. Private memory is about 5.5 MB with **Match Task
 Manager's CPU %** on (the default) and 1.5 MB with it off.

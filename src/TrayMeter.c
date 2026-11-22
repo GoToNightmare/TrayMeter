@@ -32,6 +32,9 @@
 // Default for "Match Task Manager's CPU %". See README.md for the measured cost of each mode.
 #define DEFAULT_MATCH_TASK_MANAGER 1
 
+// Default for "Update every"; the menu offers 1, 2 and 5 seconds.
+#define DEFAULT_INTERVAL_MS 5000
+
 // The CPU bar uses Task Manager's tray blue at every load.
 #define CPU_COLOR RGB(87, 192, 255)
 
@@ -84,7 +87,7 @@ static int g_unit;
 
 // Settings and sampling state.
 static BOOL g_matchTaskManager;
-static UINT g_intervalMs = 1000;
+static UINT g_intervalMs = DEFAULT_INTERVAL_MS;
 static BOOL g_paused;
 static ULONGLONG g_lastIdleTime;
 static ULONGLONG g_lastTotalTime;
@@ -164,8 +167,8 @@ static void SetStartWithWindows(BOOL enable)
 static void LoadSettings(void)
 {
     g_matchTaskManager = ReadSetting(L"MatchTaskManager", DEFAULT_MATCH_TASK_MANAGER) != 0;
-    DWORD interval = ReadSetting(L"IntervalMs", 1000);
-    g_intervalMs = (interval == 2000 || interval == 5000) ? interval : 1000;
+    DWORD interval = ReadSetting(L"IntervalMs", DEFAULT_INTERVAL_MS);
+    g_intervalMs = (interval == 1000 || interval == 2000 || interval == 5000) ? interval : DEFAULT_INTERVAL_MS;
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
